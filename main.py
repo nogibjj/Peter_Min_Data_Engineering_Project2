@@ -23,6 +23,24 @@ def generate_summary_for_stream_count():
     return (stream_median, stream_max, stream_min)
 
 
+def generate_markdown():
+    info1, info2, info3 = generate_summary_for_stream_count()
+    info1 = str(info1)
+    info2 = str(info2)
+    info3 = str(info3)
+
+
+    with open("stream_count_summary.md", "w", encoding="utf-8") as file:
+        file.write("Median:\n")
+        file.write(info1)
+        file.write("\n\n")
+        file.write("Max:\n")
+        file.write(info2)
+        file.write("\n\n")
+        file.write("Min:\n")
+        file.write(info3)
+
+
 def generate_reports(df: pd.DataFrame):
     profile = ProfileReport(df, title="Spotify Streaming Data 2023")
     profile.to_file("spotify_data.html")
@@ -48,6 +66,7 @@ def main():
     summary_stats = generate_summary_stats(spotify_df)
     print(summary_stats)
 
+    generate_markdown()
     generate_reports(spotify_df)
     generate_bar_chart_for_most_popular_artists(spotify_df)
 
