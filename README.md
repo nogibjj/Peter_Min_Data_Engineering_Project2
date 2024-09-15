@@ -1,4 +1,5 @@
 # Mini_Project_2
+[![CI/CD Pipeline](https://github.com/nogibjj/Peter_Min_Data_Engineering_Project2/actions/workflows/cicd.yml/badge.svg)](https://github.com/nogibjj/Peter_Min_Data_Engineering_Project2/actions/workflows/cicd.yml)
 
 This is the README for my Mini Project 2 for the IDS706 - Data Engineering Systems class at Duke University.
 

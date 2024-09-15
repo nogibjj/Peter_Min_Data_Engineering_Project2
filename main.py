@@ -11,13 +11,24 @@ def generate_summary_stats(df: pd.DataFrame):
     return df.describe()
 
 
+def generate_summary_for_stream_count():
+    df = read_spotify_data("spotify-2023.csv")
+
+    df['streams'] = pd.to_numeric(df['streams'], errors='coerce')
+    df.dropna(subset=['streams'], inplace=True)
+
+    stream_median = df["streams"].median()
+    stream_max = df["streams"].max()
+    stream_min = df["streams"].min()
+    return (stream_median, stream_max, stream_min)
+
+
 def generate_reports(df: pd.DataFrame):
     profile = ProfileReport(df, title="Spotify Streaming Data 2023")
     profile.to_file("spotify_data.html")
 
 
 def generate_bar_chart_for_most_popular_artists(df: pd.DataFrame):
-    # Handle missing & abnormal values
     df['streams'] = pd.to_numeric(df['streams'], errors='coerce')
     df.dropna(subset=['streams'], inplace=True)
 
@@ -40,4 +51,6 @@ def main():
     generate_reports(spotify_df)
     generate_bar_chart_for_most_popular_artists(spotify_df)
 
-main()
+
+if __name__ == "__main__":
+    main()
