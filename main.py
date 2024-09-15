@@ -1,10 +1,19 @@
 import pandas as pd
-import numpy as np
 from matplotlib import pyplot as plt
+from ydata_profiling import ProfileReport
 
 
 def read_spotify_data(filename):
     return pd.read_csv(filename, encoding="latin-1")
+
+
+def generate_summary_stats(df: pd.DataFrame):
+    return df.describe()
+
+
+def generate_reports(df: pd.DataFrame):
+    profile = ProfileReport(df, title="Spotify Streaming Data 2023")
+    profile.to_file("spotify_data.html")
 
 
 def generate_bar_chart_for_most_popular_artists(df: pd.DataFrame):
@@ -25,6 +34,10 @@ def generate_bar_chart_for_most_popular_artists(df: pd.DataFrame):
 
 def main():
     spotify_df = read_spotify_data("spotify-2023.csv")
+    summary_stats = generate_summary_stats(spotify_df)
+    print(summary_stats)
+
+    generate_reports(spotify_df)
     generate_bar_chart_for_most_popular_artists(spotify_df)
 
 main()

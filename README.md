@@ -9,3 +9,8 @@ The dataset comes from Kaggle, a public machine learning and data science commun
 For the visualization, I analyzed and visualized the 10 hottest artists by their stream counts.
 
 ![alt text](top_10_artist_by_stream_count.png)
+
+## Summary Statistics
+Here is a glimpse into the summary statistics for certain columns from the dataset by running `dataframe.describe()`:
+
+![alt text](summary_statistics.png)
