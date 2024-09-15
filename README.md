@@ -15,3 +15,6 @@ For the visualization, I analyzed and visualized the 10 hottest artists by their
 Here is a glimpse into the summary statistics for certain columns from the dataset by running `dataframe.describe()`:
 
 ![alt text](summary_statistics.png)
+
+## Extra Credit
+If you examine the latest commit by the actions-user in GitHub and click on the commit hash (001151c), you will see that the HTML descriptive data analytics file from the `ProfileReport` is built automatically at each push from the CI/CD pipeline.
