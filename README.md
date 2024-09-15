@@ -17,4 +17,4 @@ Here is a glimpse into the summary statistics for certain columns from the datas
 ![alt text](summary_statistics.png)
 
 ## Extra Credit
-If you examine the latest commit by the actions-user in GitHub and click on the commit hash (001151c), you will see that the HTML descriptive data analytics file from the `ProfileReport` is built automatically at each push from the CI/CD pipeline.
+If you examine the [latest commit by the actions-user](https://github.com/nogibjj/Peter_Min_Data_Engineering_Project2/commit/e7de39b32bb070d74214b7c3c92f5762dc1d3733) in GitHub, you will see that both the HTML descriptive data analytics file from the `ProfileReport` and the markdown descriptive statistics file are built automatically at each push from the CI/CD pipeline. PDF file format is not supported by this package so HTML has to be used here.
