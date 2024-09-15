@@ -29,7 +29,6 @@ def generate_markdown():
     info2 = str(info2)
     info3 = str(info3)
 
-
     with open("stream_count_summary.md", "w", encoding="utf-8") as file:
         file.write("Median:\n")
         file.write(info1)
