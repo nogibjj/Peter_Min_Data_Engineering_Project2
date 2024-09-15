@@ -14,8 +14,8 @@ def generate_summary_stats(df: pd.DataFrame):
 def generate_summary_for_stream_count():
     df = read_spotify_data("spotify-2023.csv")
 
-    df['streams'] = pd.to_numeric(df['streams'], errors='coerce')
-    df.dropna(subset=['streams'], inplace=True)
+    df["streams"] = pd.to_numeric(df["streams"], errors="coerce")
+    df.dropna(subset=["streams"], inplace=True)
 
     stream_median = df["streams"].median()
     stream_max = df["streams"].max()
@@ -29,16 +29,16 @@ def generate_reports(df: pd.DataFrame):
 
 
 def generate_bar_chart_for_most_popular_artists(df: pd.DataFrame):
-    df['streams'] = pd.to_numeric(df['streams'], errors='coerce')
-    df.dropna(subset=['streams'], inplace=True)
+    df["streams"] = pd.to_numeric(df["streams"], errors="coerce")
+    df.dropna(subset=["streams"], inplace=True)
 
     # Create bar chart for 10 hottest songs reflected in stream counts
-    top_artists = df.groupby('artist(s)_name')['streams'].sum().nlargest(10)
+    top_artists = df.groupby("artist(s)_name")["streams"].sum().nlargest(10)
     plt.figure(figsize=(10, 6))
-    top_artists.plot(kind='bar', color='blue')
-    plt.title('10 Hottest Artists by Total Stream Count')
-    plt.xlabel('Artists')
-    plt.ylabel('Total Streams')
+    top_artists.plot(kind="bar", color="blue")
+    plt.title("10 Hottest Artists by Total Stream Count")
+    plt.xlabel("Artists")
+    plt.ylabel("Total Streams")
     plt.xticks(rotation=45)
     plt.show()
 
